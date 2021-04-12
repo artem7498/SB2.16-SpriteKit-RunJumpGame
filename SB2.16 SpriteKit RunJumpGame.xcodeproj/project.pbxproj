@@ -8,24 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		AC909D372622E0BA00979FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D362622E0BA00979FD1 /* AppDelegate.swift */; };
-		AC909D392622E0BA00979FD1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AC909D382622E0BA00979FD1 /* GameScene.sks */; };
-		AC909D3B2622E0BA00979FD1 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = AC909D3A2622E0BA00979FD1 /* Actions.sks */; };
 		AC909D3D2622E0BA00979FD1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D3C2622E0BA00979FD1 /* GameScene.swift */; };
 		AC909D3F2622E0BA00979FD1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D3E2622E0BA00979FD1 /* GameViewController.swift */; };
 		AC909D422622E0BA00979FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC909D402622E0BA00979FD1 /* Main.storyboard */; };
 		AC909D442622E0BC00979FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC909D432622E0BC00979FD1 /* Assets.xcassets */; };
+		AC909D552624096E00979FD1 /* assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = AC909D542624096D00979FD1 /* assets.atlas */; };
+		AC909D5C26243D8900979FD1 /* CGPoint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D5B26243D8900979FD1 /* CGPoint+Ext.swift */; };
+		AC909D602624510100979FD1 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */; };
+		AC909D6426248FDC00979FD1 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */; };
+		AC909D672624A6B900979FD1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D662624A6B900979FD1 /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC909D332622E0BA00979FD1 /* SB2.16 SpriteKit RunJumpGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SB2.16 SpriteKit RunJumpGame.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC909D362622E0BA00979FD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC909D382622E0BA00979FD1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		AC909D3A2622E0BA00979FD1 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		AC909D3C2622E0BA00979FD1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		AC909D3E2622E0BA00979FD1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		AC909D412622E0BA00979FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC909D432622E0BC00979FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC909D452622E0BC00979FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC909D542624096D00979FD1 /* assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = assets.atlas; sourceTree = "<group>"; };
+		AC909D5B26243D8900979FD1 /* CGPoint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ext.swift"; sourceTree = "<group>"; };
+		AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
+		AC909D662624A6B900979FD1 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,11 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				AC909D362622E0BA00979FD1 /* AppDelegate.swift */,
-				AC909D382622E0BA00979FD1 /* GameScene.sks */,
-				AC909D3A2622E0BA00979FD1 /* Actions.sks */,
+				AC909D5B26243D8900979FD1 /* CGPoint+Ext.swift */,
+				AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */,
 				AC909D3C2622E0BA00979FD1 /* GameScene.swift */,
+				AC909D662624A6B900979FD1 /* GameOverScene.swift */,
+				AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */,
 				AC909D3E2622E0BA00979FD1 /* GameViewController.swift */,
 				AC909D402622E0BA00979FD1 /* Main.storyboard */,
+				AC909D542624096D00979FD1 /* assets.atlas */,
 				AC909D432622E0BC00979FD1 /* Assets.xcassets */,
 				AC909D452622E0BC00979FD1 /* Info.plist */,
 			);
@@ -128,9 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC909D422622E0BA00979FD1 /* Main.storyboard in Resources */,
-				AC909D392622E0BA00979FD1 /* GameScene.sks in Resources */,
 				AC909D442622E0BC00979FD1 /* Assets.xcassets in Resources */,
-				AC909D3B2622E0BA00979FD1 /* Actions.sks in Resources */,
+				AC909D552624096E00979FD1 /* assets.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC909D5C26243D8900979FD1 /* CGPoint+Ext.swift in Sources */,
 				AC909D3D2622E0BA00979FD1 /* GameScene.swift in Sources */,
+				AC909D672624A6B900979FD1 /* GameOverScene.swift in Sources */,
 				AC909D3F2622E0BA00979FD1 /* GameViewController.swift in Sources */,
+				AC909D6426248FDC00979FD1 /* PhysicsCategory.swift in Sources */,
+				AC909D602624510100979FD1 /* CGFloat+Ext.swift in Sources */,
 				AC909D372622E0BA00979FD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ArtemA.SB2-16-SpriteKit-RunJumpGame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -311,7 +323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ArtemA.SB2-16-SpriteKit-RunJumpGame";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
