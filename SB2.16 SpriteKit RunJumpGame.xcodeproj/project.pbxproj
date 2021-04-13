@@ -17,6 +17,9 @@
 		AC909D602624510100979FD1 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */; };
 		AC909D6426248FDC00979FD1 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */; };
 		AC909D672624A6B900979FD1 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D662624A6B900979FD1 /* GameOverScene.swift */; };
+		AC909D6A2625937300979FD1 /* ScoreStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC909D692625937300979FD1 /* ScoreStorage.swift */; };
+		AC909D6D26259FDD00979FD1 /* coinaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC909D6C26259FDD00979FD1 /* coinaudio.mp3 */; };
+		AC909D702625A0CE00979FD1 /* bgaudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC909D6F2625A0CE00979FD1 /* bgaudio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		AC909D662624A6B900979FD1 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		AC909D692625937300979FD1 /* ScoreStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStorage.swift; sourceTree = "<group>"; };
+		AC909D6C26259FDD00979FD1 /* coinaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coinaudio.mp3; sourceTree = "<group>"; };
+		AC909D6F2625A0CE00979FD1 /* bgaudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgaudio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +74,13 @@
 				AC909D5B26243D8900979FD1 /* CGPoint+Ext.swift */,
 				AC909D5F2624510100979FD1 /* CGFloat+Ext.swift */,
 				AC909D3C2622E0BA00979FD1 /* GameScene.swift */,
+				AC909D692625937300979FD1 /* ScoreStorage.swift */,
 				AC909D662624A6B900979FD1 /* GameOverScene.swift */,
 				AC909D6326248FDC00979FD1 /* PhysicsCategory.swift */,
 				AC909D3E2622E0BA00979FD1 /* GameViewController.swift */,
 				AC909D402622E0BA00979FD1 /* Main.storyboard */,
+				AC909D6C26259FDD00979FD1 /* coinaudio.mp3 */,
+				AC909D6F2625A0CE00979FD1 /* bgaudio.mp3 */,
 				AC909D542624096D00979FD1 /* assets.atlas */,
 				AC909D432622E0BC00979FD1 /* Assets.xcassets */,
 				AC909D452622E0BC00979FD1 /* Info.plist */,
@@ -137,8 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC909D422622E0BA00979FD1 /* Main.storyboard in Resources */,
+				AC909D702625A0CE00979FD1 /* bgaudio.mp3 in Resources */,
 				AC909D442622E0BC00979FD1 /* Assets.xcassets in Resources */,
 				AC909D552624096E00979FD1 /* assets.atlas in Resources */,
+				AC909D6D26259FDD00979FD1 /* coinaudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +166,7 @@
 				AC909D3F2622E0BA00979FD1 /* GameViewController.swift in Sources */,
 				AC909D6426248FDC00979FD1 /* PhysicsCategory.swift in Sources */,
 				AC909D602624510100979FD1 /* CGFloat+Ext.swift in Sources */,
+				AC909D6A2625937300979FD1 /* ScoreStorage.swift in Sources */,
 				AC909D372622E0BA00979FD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

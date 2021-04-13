@@ -13,11 +13,12 @@ class GameOverScene: SKScene{
     let label = SKLabelNode(text: "Game Over :(")
     var scoreLabel: SKLabelNode!
     var score = 0
+    var highScore = 0
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
+        highScore = ScoreStorage.shared.getHighScore()
         label.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        scoreLabel = SKLabelNode(text: "Your score is \(score)")
+        scoreLabel = SKLabelNode(text: "Your score is \(score), highest score is \(highScore)")
         scoreLabel.position = CGPoint(x: view.frame.size.width / 2, y: view.frame.size.height - 60)
         scoreLabel.fontName = "AmericanTypewriter-Bold"
         scoreLabel.fontSize = 30

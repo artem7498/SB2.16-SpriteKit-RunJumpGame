@@ -21,6 +21,7 @@ class GameScene: SKScene {
     var ground: SKSpriteNode!
     
     var obstacles: [SKSpriteNode] = []
+    var coin: SKSpriteNode!
     
     var cameraNode = SKCameraNode()
     var cameraMovePointsPerSecond: CGFloat = 450.0
@@ -32,6 +33,9 @@ class GameScene: SKScene {
     var velocityY: CGFloat = 0.0
     var gravity: CGFloat = 0.6
     var playerPosY: CGFloat = 0.0
+    
+    var backgroundMusic = SKAudioNode()
+    var coinSound = SKAction()
     
     var playableRect: CGRect {
         let ratio: CGFloat
@@ -62,7 +66,6 @@ class GameScene: SKScene {
         createBG()
         createGround()
         createPlayer()
-//        setupObstacles()
         setupCamera()
         addScore()
         increaseSpeed()
@@ -70,6 +73,12 @@ class GameScene: SKScene {
         run(.sequence([
             .wait(forDuration: 3),
             .run { self.spawnBlock() } ]))
+        run(.sequence([
+            .wait(forDuration: 3),
+            .run { self.spawnCoin() } ]))
+        
+        playBGMusic()
+        setupCoinSound()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -121,6 +130,16 @@ class GameScene: SKScene {
         }
     }
     
+    func playBGMusic(){
+        backgroundMusic = SKAudioNode(fileNamed: "bgaudio.mp3")
+        addChild(backgroundMusic)
+        backgroundMusic.run(SKAction.play())
+    }
+    
+    func setupCoinSound(){
+        coinSound = SKAction.playSoundFileNamed("coinaudio.mp3", waitForCompletion: false)
+    }
+    
     func createGround(){
         for i in 0...2{
             let groundTexture = atlas.textureNamed("ground2")
@@ -128,7 +147,7 @@ class GameScene: SKScene {
             ground.name = "Ground"
             ground.anchorPoint = .zero
             ground.zPosition = 1.0
-            ground.position = CGPoint(x: CGFloat(i)*ground.frame.width, y: 0)
+            ground.position = CGPoint(x: CGFloat(i)*ground.frame.width, y: 0.0)
             ground.physicsBody = SKPhysicsBody(rectangleOf: ground.size)
             ground.physicsBody?.isDynamic = false
             ground.physicsBody?.affectedByGravity = false
@@ -258,6 +277,42 @@ class GameScene: SKScene {
         ])))
     }
     
+    func createCoin(){
+        let coinTexture = atlas.textureNamed("coin-1")
+        coin = SKSpriteNode(texture: coinTexture)
+        coin.name = "Coin"
+        coin.zPosition = 20.0
+        coin.setScale(0.85)
+        coin.size = CGSize(width: coin.size.width/2.0, height: coin.size.height/2.0)
+        let coinHeight = coin.frame.height / 2
+        let random = CGFloat.random(min: 0, max: coinHeight * 4.0)
+        coin.position = CGPoint(x: cameraRect.maxX + coin.frame.width/2, y: size.height/2.0 + random)
+        coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.size.width/2)
+        coin.physicsBody?.isDynamic = false
+        coin.physicsBody?.affectedByGravity = false
+        coin.physicsBody?.categoryBitMask = PhysicsCategory.coin
+        coin.physicsBody?.contactTestBitMask = PhysicsCategory.player
+        addChild(coin)
+        coin.run(.sequence([.wait(forDuration: 15.0), .removeFromParent()]))
+        
+        var textures: [SKTexture] = []
+        for i in 1...6{
+            textures.append(atlas.textureNamed("coin-\(i)"))
+        }
+        
+        coin.run(.repeatForever(.animate(with: textures, timePerFrame: 0.083)))
+    }
+    func spawnCoin(){
+        let random = CGFloat.random(min: 2.5, max: 6.0)
+        run(.repeatForever(.sequence([
+            .wait(forDuration: TimeInterval(random)),
+            .run { [weak self] in
+                self?.createCoin()
+            }
+        ])))
+        
+    }
+    
     func addScore(){
         scoreLabel = SKLabelNode(text: "Score: 0")
         scoreLabel.position = CGPoint(x: -playableRect.width/2.0 + scoreLabel.frame.width, y: playableRect.height/2 - scoreLabel.frame.height * 2)
@@ -282,6 +337,20 @@ class GameScene: SKScene {
             .run { self.cameraMovePointsPerSecond += 50}
         ])))
     }
+    
+    func gameOver(){
+        let scene = GameOverScene(size: size)
+        scene.score = score
+        
+        let highScore = ScoreStorage.shared.getHighScore()
+        
+        if score > highScore{
+            ScoreStorage.shared.setHighScore(highscore: score)
+        }
+        
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        self.view?.presentScene(scene, transition: reveal)
+    }
         
 }
 
@@ -293,17 +362,18 @@ extension GameScene: SKPhysicsContactDelegate{
         switch other.categoryBitMask {
         case PhysicsCategory.block:
 //            cameraMovePointsPerSecond += 150.0
-            let scene = GameOverScene(size: size)
-            scene.score = score
-            let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
-            self.view?.presentScene(scene, transition: reveal)
+            gameOver()
             print("block contacted")
         case PhysicsCategory.obstacle:
-            let scene = GameOverScene(size: size)
-            scene.score = score
-            let reveal = SKTransition.doorsCloseVertical(withDuration: 0.5)
-            self.view?.presentScene(scene, transition: reveal)
+            gameOver()
             print("obstacle contacted")
+        case PhysicsCategory.coin:
+            run(coinSound)
+            if let node = other.node{
+                score += 5
+                print("Coin")
+                node.removeFromParent()
+            }
         default:
             break
         }
